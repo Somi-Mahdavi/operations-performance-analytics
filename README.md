@@ -1,10 +1,10 @@
 # Contractor Operations Analytics
 
-An end-to-end analytics project based on a real telecommunications contractor-management use case.
+End-to-end analytics project based on a real telecommunications contractor-management use case, rebuilt with synthetic data using PostgreSQL, SQL, Python, and Power BI.
 
-The project analyzes contractor performance, operational incidents, SLA compliance, ticket assignment, recurring contractual tasks, and service-delivery performance.
+The project analyzes contractor performance, operational incidents, SLA compliance, ticket assignments, recurring contractual tasks, and service-delivery performance.
 
-> **Data note:** The business case is based on previous experience. All data used in this portfolio project is synthetic and does not contain company or customer information.
+> **Data note:** The business case is based on previous professional experience. All data used in this project is synthetic and contains no company or customer information.
 
 ---
 
