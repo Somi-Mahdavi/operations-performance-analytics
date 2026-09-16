@@ -254,15 +254,14 @@ The analysis supports:
 
 \---
 
+## Power BI Dashboard
 
+### Operations Overview
 
-\## Project Status
+![Operations Overview](images/operations_overview.png)
 
+### Ticket Assignment Analysis
 
-
-Power BI dashboard completed.  
-
-Documentation and final repository presentation in progress.
-
+![Ticket Assignment Analysis](images/ticket_assignment_analysis.png)
 
 
