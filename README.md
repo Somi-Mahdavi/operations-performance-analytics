@@ -2,7 +2,7 @@
 
 > 🚧 **Work in Progress**
 >
-> This project is currently under active development. The SQL analysis is being built incrementally, followed by the development of a Power BI reporting layer and interactive dashboard. Additional reliability, recurring-incident, and root-cause analyses will be added as the project progresses.
+> This project is currently under active development. The contractor and SLA analyses, including statistical comparison of contractor resolution times, have been completed. The next stages include planned-task performance, reliability and root-cause analysis, followed by the development of a Power BI reporting layer and interactive dashboard.
 
 ## Project Overview
 
@@ -23,7 +23,7 @@ The portfolio implementation uses a fully synthetic dataset designed to reproduc
 
 External contractors are responsible for operational support, incident resolution, and planned maintenance activities.
 
-The analysis evaluates contractor performance using several operational KPIs.
+The analysis evaluates contractor performance using several operational KPIs and statistical methods.
 
 ### SLA Performance
 
@@ -49,6 +49,62 @@ The analysis can support:
 * contractual penalty assessment where applicable,
 * corrective-action discussions,
 * and evidence-based contract management decisions.
+
+---
+
+### Contractor Performance Analysis
+
+Contractor performance is analyzed from several perspectives to avoid relying on a single KPI.
+
+The analysis includes:
+
+* incident workload by contractor,
+* average resolution time,
+* median resolution time,
+* incident priority mix,
+* location mix,
+* SLA performance by contractor,
+* monthly SLA trends,
+* monthly resolution-time trends,
+* and resolution-time comparison by incident priority.
+
+Average and median resolution times are analyzed together because unusually long incidents can influence the average. Priority and location distributions are also reviewed to provide context before comparing contractor performance.
+
+---
+
+### Statistical Analysis of Resolution Time
+
+A statistical analysis was performed in Python to determine whether the observed differences in contractor resolution times were supported by statistical evidence.
+
+The workflow included:
+
+1. descriptive statistics by contractor,
+2. boxplot analysis of resolution-time distributions,
+3. Kruskal–Wallis test across all five contractors,
+4. Dunn's post-hoc pairwise analysis,
+5. Holm correction for multiple comparisons.
+
+The Kruskal–Wallis test identified a statistically significant difference in resolution-time distributions across contractors:
+
+**H = 63.23, p < 0.001**
+
+Dunn's post-hoc analysis with Holm correction was then used to identify which contractor pairs differed.
+
+The analysis showed that Contractor B and Contractor C had statistically significant differences from several other contractors, while no statistically significant differences were found among Contractors A, D, and E.
+
+The descriptive analysis provided additional context:
+
+* Contractor B had the lowest median resolution time: **388 minutes**
+* Contractor C had the highest median resolution time: **763 minutes**
+* Contractors A, D, and E showed intermediate median resolution times
+
+The combination of descriptive and inferential analysis therefore showed that the observed resolution-time differences for Contractors B and C were supported by statistical evidence.
+
+These results do not establish causation. Operational factors such as incident priority, location, and complexity should also be considered when evaluating contractor performance.
+
+**Business Impact**
+
+The statistical analysis provides additional evidence for contractor performance reviews by distinguishing observed KPI differences from differences that are supported by statistical analysis.
 
 ---
 
@@ -160,7 +216,11 @@ Analytical PostgreSQL Database
        ↓
 SQL Data Exploration & Validation
        ↓
-SLA / Contractor / Task / Reliability Analysis
+SLA & Contractor Performance Analysis
+       ↓
+Python Statistical Analysis
+       ↓
+Task / Reliability / Root Cause Analysis
        ↓
 Reporting Views
        ↓
@@ -171,7 +231,11 @@ Operational Performance Dashboard
 Business & Operational Decisions
 ```
 
-SQL is used for data exploration, validation, KPI development, and analytical preparation. Power BI will be used to build the reporting model, measures, interactive visualizations, and management dashboard.
+SQL is used for data exploration, validation, KPI development, and analytical preparation.
+
+Python is used to extend the SQL analysis with statistical methods where appropriate. In the contractor-performance analysis, Python was used for descriptive statistics, visualization, the Kruskal–Wallis test, and Dunn's post-hoc analysis with Holm correction.
+
+Power BI will be used to build the reporting model, measures, interactive visualizations, and management dashboard.
 
 ---
 
@@ -184,14 +248,17 @@ SQL is used for data exploration, validation, KPI development, and analytical pr
 * SLA analysis
 * SLA compliance and breach calculations
 * SLA analysis by priority and location
-* Contractor SLA comparison
-* Monthly SLA trend analysis
+* Contractor performance analysis
+* Average and median resolution-time analysis
+* Contractor priority and location mix analysis
+* Monthly contractor SLA analysis
+* Monthly contractor resolution-time analysis
+* Statistical contractor comparison in Python
+* Kruskal–Wallis test
+* Dunn's post-hoc analysis with Holm correction
 
 ### In Progress
 
-* Contractor performance analysis
-* Resolution-time analysis
-* Monthly contractor performance
 * Planned task performance analysis
 
 ### Planned
@@ -215,6 +282,9 @@ operations-performance-analytics/
 │
 ├── README.md
 │
+├── data/
+│   └── contractor_resolution_times.csv
+│
 ├── database/
 │   └── synthetic_database_setup.sql
 │
@@ -224,7 +294,11 @@ operations-performance-analytics/
 │   ├── 03_contractor_performance.sql
 │   ├── 04_task_performance.sql
 │   ├── 05_reliability_analysis.sql
-│   └── 06_root_cause_analysis.sql
+│   ├── 06_root_cause_analysis.sql
+│   └── 07_create_reporting_views.sql
+│
+├── python/
+│   └── 01_contractor_statistical_analysis.ipynb
 │
 └── powerbi/
     └── operations_performance_dashboard.pbix
@@ -237,8 +311,14 @@ operations-performance-analytics/
 * PostgreSQL
 * SQL
 * pgAdmin
+* Python
+* pandas
+* SciPy
+* scikit-posthocs
+* Matplotlib
 * Power BI
 * Data Modeling
+* Statistical Analysis
 * Operational KPI Analysis
 * SLA & Performance Analytics
 
@@ -248,4 +328,6 @@ operations-performance-analytics/
 
 The goal of this project is to demonstrate how operational data can be transformed into actionable information for contractor management, service-quality monitoring, infrastructure reliability, maintenance planning, and operational decision-making.
 
-The project is being developed incrementally, with each analytical layer validated before being incorporated into the final Power BI reporting solution.
+The project combines SQL-based operational analytics with Python-based statistical analysis and will ultimately integrate the validated analytical results into a Power BI reporting solution.
+
+The project is being developed incrementally, with each analytical layer validated before being incorporated into the final reporting model.
