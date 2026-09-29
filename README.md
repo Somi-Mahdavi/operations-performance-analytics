@@ -135,7 +135,7 @@ operations-performance-analytics/
 │   └── 01_contractor_statistical_analysis.ipynb
 │
 ├── powerbi/
-│   └── Power BI dashboard file
+│   └── operations_performance_analytics.pbix
 │
 ├── images/
 │   ├── 01_executive_overview.png
