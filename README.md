@@ -105,19 +105,20 @@ The final Power BI solution contains three reporting pages.
 
 ### 1. Operations Performance Overview
 
-[Operations Performance Overview](https://github.com/Somi-Mahdavi/operations-performance-analytics/blob/main/images/01_executive_overview.png) ([image](https://github.com/Somi-Mahdavi/operations-performance-analytics/raw/main/images/01_executive_overview.png))
+![Operations Performance Overview](images/01_executive_overview.png)
 
 Management-level overview of incident volume, SLA compliance, SLA breaches, planned-task performance, and monthly operational trends.
 
 ### 2. Contractor & Contract Performance
 
-[Contractor & Contract Performance](https://github.com/Somi-Mahdavi/operations-performance-analytics/blob/main/images/02_contractor_contract_performance.png) ([image](https://github.com/Somi-Mahdavi/operations-performance-analytics/raw/main/images/02_contractor_contract_performance.png))
+![Contractor & Contract Performance](images/02_contractor_contract_performance.png)
 
 Detailed contractor performance analysis including SLA compliance by priority and location group, SLA excess hours, task delays, and monthly performance trends.
 
 ### 3. Reliability & Root Cause Analysis
 
-[Reliability & Root Cause Analysis](https://github.com/Somi-Mahdavi/operations-performance-analytics/blob/main/images/03_reliability_root_cause.png) ([image](https://github.com/Somi-Mahdavi/operations-performance-analytics/raw/main/images/03_reliability_root_cause.png))
+![Reliability & Root Cause Analysis](images/03_reliability_root_cause.png)
+
 
 Infrastructure reliability analysis showing incident concentration across sites and devices, normalized incidents per device, recorded root causes, and Pareto analysis.
 
