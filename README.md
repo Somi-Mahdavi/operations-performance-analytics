@@ -86,25 +86,38 @@ This provides both a **WHERE** perspective — where incidents occur — and a *
 
 ---
 
+## Key Findings
+
+The following findings are based on the **synthetic dataset** created for this portfolio project:
+
+- Overall **SLA compliance was 71.84%**, with **145 SLA breaches** across 515 incidents.
+- Incident volume increased from **72 incidents in January to 102 in June**, showing an upward trend during the six-month analysis period.
+- Overall contractor SLA compliance ranged from **36.19% to 100%**. Since SLA targets depend on factors such as priority and location group, these overall rates should not be interpreted as a standalone contractor ranking.
+- Planned-task performance reached an overall **81.05% on-time rate**, with **108 overdue tasks**.
+- Statistical analysis identified a **significant overall difference in incident resolution times between contractors** (Kruskal–Wallis, **p < 0.001**). Contractor B had the lowest median resolution time (**388 minutes**), while Contractor C had the highest (**763 minutes**). Dunn's post-hoc analysis showed significant differences between several contractor pairs, while differences among Contractors A, D, and E were not statistically significant.
+- **Network** was the largest incident category with **284 incidents**. The most frequent recorded root causes included **Link Failure, Routing Issue, Interface Failure, and Packet Loss**.
+
+---
+
 ## Power BI Dashboard
 
 The final Power BI solution contains three reporting pages.
 
 ### 1. Operations Performance Overview
 
-![Operations Performance Overview](images/01_executive_overview.png)
+[Operations Performance Overview](https://github.com/Somi-Mahdavi/operations-performance-analytics/blob/main/images/01_executive_overview.png) ([image](https://github.com/Somi-Mahdavi/operations-performance-analytics/raw/main/images/01_executive_overview.png))
 
 Management-level overview of incident volume, SLA compliance, SLA breaches, planned-task performance, and monthly operational trends.
 
 ### 2. Contractor & Contract Performance
 
-![Contractor & Contract Performance](images/02_contractor_contract_performance.png)
+[Contractor & Contract Performance](https://github.com/Somi-Mahdavi/operations-performance-analytics/blob/main/images/02_contractor_contract_performance.png) ([image](https://github.com/Somi-Mahdavi/operations-performance-analytics/raw/main/images/02_contractor_contract_performance.png))
 
 Detailed contractor performance analysis including SLA compliance by priority and location group, SLA excess hours, task delays, and monthly performance trends.
 
 ### 3. Reliability & Root Cause Analysis
 
-![Reliability & Root Cause Analysis](images/03_reliability_root_cause.png)
+[Reliability & Root Cause Analysis](https://github.com/Somi-Mahdavi/operations-performance-analytics/blob/main/images/03_reliability_root_cause.png) ([image](https://github.com/Somi-Mahdavi/operations-performance-analytics/raw/main/images/03_reliability_root_cause.png))
 
 Infrastructure reliability analysis showing incident concentration across sites and devices, normalized incidents per device, recorded root causes, and Pareto analysis.
 
